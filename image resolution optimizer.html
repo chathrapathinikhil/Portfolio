@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resize and Download Image</title>
+  </head>
+  <body>
+    <h1>Resize Image</h1>
+
+    <!-- File Upload -->
+    <input type="file" id="upload" accept="image/*" />
+    <br /><br />
+
+    <!-- Input Fields for Resolution -->
+    <label for="width">Width:</label>
+    <input type="number" id="width" placeholder="Enter width" />
+    <label for="height">Height:</label>
+    <input type="number" id="height" placeholder="Enter height" />
+    <br /><br />
+
+    <!-- Buttons -->
+    <button id="resizeButton">Resize</button>
+    <button id="downloadButton" style="display: none">
+      Download Resized Image
+    </button>
+    <br /><br />
+
+    <!-- Canvas to Process Image -->
+    <canvas id="canvas" style="display: none"></canvas>
+
+    <!-- Display Resized Image -->
+    <img id="resizedImage" alt="Resized Image" />
+
+    <script>
+      // Handle file upload
+      document
+        .getElementById("upload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const img = new Image();
+              img.src = e.target.result;
+
+              img.onload = function () {
+                // Handle resize button click
+                document
+                  .getElementById("resizeButton")
+                  .addEventListener("click", function () {
+                    const width = parseInt(
+                      document.getElementById("width").value
+                    );
+                    const height = parseInt(
+                      document.getElementById("height").value
+                    );
+
+                    // Validate input
+                    if (!width || !height) {
+                      alert("Please enter both width and height.");
+                      return;
+                    }
+
+                    // Resize the image using canvas
+                    const canvas = document.getElementById("canvas");
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Generate resized image URL
+                    const resizedImageURL = canvas.toDataURL("image/png");
+                    document.getElementById("resizedImage").src =
+                      resizedImageURL; // Display resized image
+
+                    // Show download button
+                    const downloadButton =
+                      document.getElementById("downloadButton");
+                    downloadButton.style.display = "inline";
+
+                    // Handle download button click
+                    downloadButton.addEventListener("click", function () {
+                      const link = document.createElement("a");
+                      link.href = resizedImageURL;
+                      link.download = "resized_image.png"; // Default filename
+                      link.click();
+                    });
+                  });
+              };
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+    </script>
+  </body>
+</html>
