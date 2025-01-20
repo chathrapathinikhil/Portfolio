@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - CNK's Portfolio</title>
+    <link rel="stylesheet" href="../portfolio.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <nav class="navigation">
+      <div class="navbar">
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              src="../Minimalist Monogram Design of Initials.PNG"
+              alt="Logo"
+            />
+          </a>
+        </div>
+        <ul class="nav-elements">
+          <li class="home-link"><a href="../index.html">Home</a></li>
+          <li class="work-link"><a href="../work/work.html">Work</a></li>
+          <li class="projects-link">
+            <a href="../projects/projects.html">Projects</a>
+          </li>
+          <li class="contact-link">
+            <a href="../contact/contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="contact-left"
+      >
+        <div class="contact-left-title">
+          <h2>Get in touch</h2>
+          <hr />
+        </div>
+        <input
+          type="hidden"
+          name="access_key"
+          value="fb91d7f5-7c1a-42a2-aaa7-e49cab55323e"
+        />
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          class="contact-inputs"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          class="contact-inputs"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          class="contact-inputs"
+          required
+        ></textarea>
+        <button type="submit" class="contact-button">
+          Submit<img src="../arrow_icon.png" alt="arrow" />
+        </button>
+      </form>
+    </div>
+
+      <div class="social-buttons">
+        <a type="button" class="logo-button" href="https://www.instagram.com/chathrapathi_nikhil_99/">
+          <img src="../insta.png" alt="instagram" />
+        </a>
+        <a type="button" class="logo-button" href="https://www.linkedin.com/in/chathrapathi-nikhil-k/">
+          <img src="../linkedin.png" alt="linkedin" />
+        </a>
+        <a type="button" class="logo-button" href="https://github.com/chathrapathinikhil">
+          <img src="../github.png" alt="github" />
+        </a>
+        <a type="button" class="logo-button" href="https://x.com/ChathrapathiN">
+          <img src="../twitter.png" alt="twitter" />
+        </a>
+        <a type="button" class="logo-button" href="mailto:chathrapathinikhilk@gmail.com">
+          <img src="../gmail.png" alt="gmail" />
+        </a>
+      </div>
+    </div>
+
+    <script src="contact.js"></script>
+  </body>
+</html>
