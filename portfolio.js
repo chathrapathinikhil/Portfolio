@@ -13,7 +13,8 @@ const homeLink = document.querySelector(".home-link");
 const isHomePage =
   window.location.pathname === "/" ||
   window.location.pathname === "/index.html" ||
-  window.location.pathname.endsWith("/index.html");
+  window.location.pathname.endsWith("/index.html") ||
+  window.location.pathname.includes("Portfolio");
 
 // Check if this is a page refresh
 const lastLoadTime = localStorage.getItem("lastLoadTime");
@@ -27,6 +28,8 @@ localStorage.setItem("lastLoadTime", currentTime);
 
 const shouldPlayAnimation =
   isHomePage && (!localStorage.getItem("hasVisited") || isRefresh);
+
+// const shouldPlayAnimation = isHomePage && !localStorage.getItem("hasVisited");
 
 console.log(shouldPlayAnimation);
 
