@@ -150,8 +150,9 @@ body {
 .content-icon img {
   width: 100%;
   height: 100%;
-  opacity: 1;
-  filter: brightness(1);
+  opacity: 0.8;
+  color: white; /* For currentColor in SVG */
+  filter: brightness(1.2); /* Make icons more visible */
 }
 
 .content h3 {

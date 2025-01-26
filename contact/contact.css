@@ -179,3 +179,11 @@ body {
     top: 400px;
   }
 } */
+
+/* Add this to your existing CSS */
+input::placeholder,
+textarea::placeholder {
+  font-family: "YourFontName", sans-serif; /* Replace 'YourFontName' with the desired font */
+  color: rgba(94, 7, 7, 0.7); /* Adjust color as needed */
+  opacity: 1; /* Ensures the placeholder is fully opaque */
+}

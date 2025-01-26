@@ -95,8 +95,8 @@ function createHeaderContent() {
   const downloadBtn = header.querySelector(".download-btn");
   downloadBtn.addEventListener("click", () => {
     const link = document.createElement("a");
-    link.href = "Chathrapathi_Nikhil_Kandagatla_Resume.pdf";
-    link.download = "Chathrapathi_Nikhil_Kandagatla_Resume.pdf";
+    link.href = "Chathrapathi_Nikhil_Kandagatla.pdf";
+    link.download = "Chathrapathi_Nikhil_Kandagatla.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
