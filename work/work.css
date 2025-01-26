@@ -1,0 +1,222 @@
+body {
+  /* min-height: 100vh; */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scroll-behavior: smooth;
+  padding-bottom: 4rem; /* Add padding at bottom */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 5rem auto 2rem; /* Adjusted bottom margin */
+  padding: 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.15),
+    rgba(80, 0, 255, 0.25) /* Cornflower blue */
+  );
+  height: fit-content;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.15); /* Red glow effect */
+  backdrop-filter: blur(10px);
+}
+
+.container p {
+  color: #fff;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* Optional: Add hover effect */
+/* .container:hover {
+  background: rgba(255, 0, 0, 0.15);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+} */
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 2rem auto; /* Adjusted margin */
+  padding: 20px;
+  min-height: auto; /* Remove fixed height */
+  overflow: visible; /* Allow content to flow */
+}
+
+/* The vertical line */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0.3),
+    rgba(80, 0, 255, 0.3)
+  );
+  top: 0;
+  height: 100%; /* Make line full height */
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 3px;
+  z-index: 0;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  margin: 2rem 0; /* Add vertical spacing between items */
+}
+
+/* The circles on the timeline */
+/* .timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.5),
+    rgba(80, 0, 255, 0.5)
+  );
+  border-radius: 50%;
+  top: 40px; /* Adjust to align with content */
+/* transform: none; */
+/* border: 4px solid rgba(255, 255, 255, 0.3); */
+/* z-index: 1; Ensure circles are above the line */
+/* } */
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container */
+.left::before {
+  content: " ";
+  position: absolute;
+  top: 40px; /* Match circle position */
+  right: 30px;
+  border: medium solid rgba(255, 255, 255, 0.2);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.2);
+}
+
+/* Add arrows to the right container */
+.right::before {
+  content: " ";
+  position: absolute;
+  top: 40px; /* Match circle position */
+  left: 30px;
+  border: medium solid rgba(255, 255, 255, 0.2);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgba(255, 255, 255, 0.2) transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  margin: 15px 30px;
+  padding: 20px 30px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(80, 0, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 0;
+}
+
+.content-icon {
+  width: 32px; /* Reduced size */
+  height: 32px;
+  margin-bottom: 15px;
+}
+
+.content-icon img {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  filter: brightness(1);
+}
+
+.content h3 {
+  color: #fff;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.content h4 {
+  color: #ccc;
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.content .date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0 0 10px 0;
+}
+
+.content p {
+  color: #ccc;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline {
+    margin: 1rem auto;
+  }
+
+  .timeline-item {
+    margin: 1rem 0;
+  }
+
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .right {
+    left: 0;
+  }
+
+  .left::before,
+  .right::before {
+    left: 60px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgba(255, 255, 255, 0.2) transparent transparent;
+  }
+
+  .left::after,
+  .right::after {
+    left: 15px;
+  }
+}
