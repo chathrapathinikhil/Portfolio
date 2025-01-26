@@ -7,6 +7,8 @@ const blocks = document.querySelectorAll(".blocks .block");
 const container = document.querySelector(".container");
 const homeLink = document.querySelector(".home-link");
 
+// localStorage.removeItem("hasVisited");
+// document.body.classList.add("initial-load");
 // Check if we're on the home page
 const isHomePage =
   window.location.pathname === "/" ||
@@ -18,11 +20,15 @@ const lastLoadTime = localStorage.getItem("lastLoadTime");
 const currentTime = new Date().getTime();
 const isRefresh = lastLoadTime && currentTime - lastLoadTime < 3000; // Within 3 seconds considered a refresh
 
+console.log(isRefresh);
+
 // Update last load time
 localStorage.setItem("lastLoadTime", currentTime);
 
 const shouldPlayAnimation =
   isHomePage && (!localStorage.getItem("hasVisited") || isRefresh);
+
+console.log(shouldPlayAnimation);
 
 // Only run animations if we're on home page AND animation hasn't played yet
 if (shouldPlayAnimation) {
