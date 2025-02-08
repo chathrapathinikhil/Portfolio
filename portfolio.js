@@ -113,7 +113,7 @@ function createHeaderContent() {
 
   const sayhi = header.querySelector(".hello-btn");
   sayhi.addEventListener("click", () => {
-    window.location.href = "../contact/contact.html";
+    window.location.href = "../Portfolio/contact/contact.html";
   });
 
   const portfolioimage = document.createElement("img");
